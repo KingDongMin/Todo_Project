@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <p>초기화</p>
+      <p>초기화z</p>
     </div>
   );
 }
