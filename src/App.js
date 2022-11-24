@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import TodoList from './components/TodoList/TodoList';
+import TodosFilter from './components/TodosFilter/TodosFilter';
+
+const filters = ['all', 'active', 'completed']
 function App() {
+  const [filter, setFilter] = useState(filters[0]);
+  const handleChange = (updated)=>setFilter(updated);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodosFilter filters={filters} onChange={handleChange}></TodosFilter>
+      <TodoList filter={filter}></TodoList>
+    </>
   );
 }
 
