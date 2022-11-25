@@ -21,16 +21,14 @@ export default function AddTodo({ onAdd }) {
     };
 
     return (
-        <section className={styles.add}>
-            <form onSubmit={handleSubmit}>
-                <input
-                    className={styles.input}
-                    type="text"
-                    value={text}
-                    onChange={handleChange}
-                />
-                <button className={styles.button}>Add</button>
-            </form>
-        </section>
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+                className={styles.input}
+                type="text"
+                value={text}
+                onChange={handleChange}
+            />
+            <button className={styles.button}>Add</button>
+        </form>
     );
 }
