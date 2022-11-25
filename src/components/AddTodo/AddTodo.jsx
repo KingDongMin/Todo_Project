@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styles from './AddTodo.module.css';
 
 export default function AddTodo({ onAdd }) {
     const [text, setText] = useState('');
@@ -16,15 +17,20 @@ export default function AddTodo({ onAdd }) {
         if (textTrim.length === 0) {
             return;
         }
-        onAdd({ id: uuidv4(), name: textTrim, status: 'active' });
+        onAdd({ id: uuidv4(), text: textTrim, status: 'active' });
     };
 
     return (
-        <footer>
+        <section className={styles.add}>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={text} onChange={handleChange} />
-                <button>Add</button>
+                <input
+                    className={styles.input}
+                    type="text"
+                    value={text}
+                    onChange={handleChange}
+                />
+                <button className={styles.button}>Add</button>
             </form>
-        </footer>
+        </section>
     );
 }
